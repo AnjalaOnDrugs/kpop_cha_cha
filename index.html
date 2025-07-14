@@ -5,16 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KPOP CHA CHA 4.0 - The Return of the Voyagers</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://css.gg/css?=|chevron-down|play-button-o" rel="stylesheet">
+    <link href="https://css.gg/css?=|chevron-down|play-button-o|close" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Custom Styles -->
     <style>
         /* Color Variables */
         :root {
@@ -59,29 +56,17 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 15vh; /* Adjust height as needed */
+            height: 15vh;
             background-image:
                 linear-gradient(to bottom, rgba(0,0,0,0.5), transparent 80%),
                 repeating-linear-gradient(90deg, rgba(0,0,0,0) 0, rgba(0,0,0,0) 5%, rgba(0,0,0,0.15) 10%, rgba(0,0,0,0) 15%),
                 url('https://www.transparenttextures.com/patterns/subtle-dark-matter.png'),
                 linear-gradient(to right, var(--brand-red-dark), var(--brand-red));
             background-color: var(--brand-red);
-            z-index: 102; /* Above the curtains */
+            z-index: 102;
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
             transition: opacity 0.5s ease-out;
         }
-        .curtain-pelmet::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 0;
-            width: 100%;
-            height: 30px;
-            background: radial-gradient(circle at 50% 0, var(--brand-gold-dark) 5%, transparent 60%);
-            background-size: 80px 30px;
-            opacity: 0.5;
-        }
-
 
         .curtain {
             position: absolute;
@@ -99,17 +84,6 @@
         }
         .curtain-left { left: 0; }
         .curtain-right { right: 0; }
-        .curtain::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 30px;
-            background: linear-gradient(to top, var(--brand-gold), var(--brand-gold-dark) 50%, transparent);
-            filter: blur(5px);
-            opacity: 0.6;
-        }
 
         .curtain-overlay-content {
             position: relative;
@@ -249,9 +223,9 @@
         }
         .envelope-wrapper {
             width: 320px;
-  height: 400px;
-  position: relative;
-  margin: auto;
+            height: 400px;
+            position: relative;
+            margin: auto;
         }
         .envelope-flap {
             position: absolute;
@@ -263,12 +237,12 @@
         }
         .envelope-flap.top {
             width: 100%;
-  height: 25%;
-  top: 0;
-  transform-origin: top;
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  z-index: 12;
-  will-change: transform;
+            height: 25%;
+            top: 0;
+            transform-origin: top;
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            z-index: 12;
+            will-change: transform;
         }
         .envelope-back {
             position: absolute;
@@ -280,52 +254,518 @@
         }
         .invitation-ticket {
             position: absolute;
-  width: 90%;
-  height: 94%;
-  top: 3%;
-  left: 5%;
-  z-index: 11;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  text-align: center;
-  opacity: 0;
-  overflow: hidden;
-  background-image: url('https://i.ibb.co/vxC65XTy/last-inv.png');
-  background-size: cover;
-  background-position: center;
-  border-radius: 4px;
-  box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
-  will-change: transform, opacity;
-        }
-        .ticket-text {
-            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
-            width: 95%;
+            width: 90%;
+            height: 94%;
+            top: 3%;
+            left: 5%;
+            z-index: 11;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            text-align: center;
+            opacity: 0;
+            overflow: hidden;
+            background-image: url('https://i.ibb.co/vxC65XTy/last-inv.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 4px;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
+            will-change: transform, opacity;
         }
 
         .wax-seal {
             position: absolute;
-  width: 175px;
-  height: 62px;
-  background-image: url('https://i.ibb.co/pv38LM8R/erasebg-transformed-1.png');
-  background-size: 90%;
-  background-position: center;
-  background-repeat: no-repeat;
-  top: 17%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 13;
-  filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.4));
-  will-change: opacity;
+            width: 175px;
+            height: 62px;
+            background-image: url('https://i.ibb.co/pv38LM8R/erasebg-transformed-1.png');
+            background-size: 90%;
+            background-position: center;
+            background-repeat: no-repeat;
+            top: 17%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 13;
+            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.4));
+            will-change: opacity;
+        }
+
+        /* --- NEW/UPDATED Film Roll Committee Styles --- */
+        .film-strip-outer-container {
+            background: #111;
+            padding: 2rem 0;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            transform: rotate(-1deg);
+            margin: 0 -10%;
+        }
+        .film-strip-container {
+            overflow: hidden;
+        }
+        .film-strip {
+            display: flex;
+            width: fit-content;
+            animation: filmScroll 40s linear infinite;
+        }
+        .film-strip:hover {
+            animation-play-state: paused;
+        }
+        @keyframes filmScroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        .film-frame {
+            flex-shrink: 0;
+            width: 250px;
+            height: 300px;
+            background-color: #1a1a1a;
+            margin: 0 5px; /* Creates the gap between frames */
+            display: flex;
+            flex-direction: column;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.7);
+        }
+
+        .perforation-strip {
+            height: 25px; /* Height of the strip with holes */
+            width: 100%;
+            background-image: repeating-linear-gradient(
+                to right,
+                transparent 0, transparent 10px, /* Gap between holes */
+                #938787  10px, #000 22px /* The hole itself */
+            );
+            background-size: 32px 100%; /* Total size of one pattern repeat (hole + gap) */
+        }
+
+        .frame-content {
+            flex-grow: 1; /* Takes up the remaining vertical space */
+            margin: 5px 8px; /* Creates the top/bottom and side borders */
+            background: #000;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .member-photo-film {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: sepia(30%) contrast(1.1) saturate(0.8);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .film-frame:hover .member-photo-film {
+            filter: sepia(0%) contrast(1) saturate(1);
+            transform: scale(1.1);
+        }
+
+        .member-name-plate {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, transparent 100%);
+            padding: 20px 10px 10px;
+            text-align: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .member-role {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            color: var(--brand-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .member-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: #ddd;
+            font-weight: 500;
+        }
+
+        .clapperboard {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 15px 30px;
+            margin-bottom: 2rem;
+            position: relative;
+            transform: rotate(-2deg);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .clapperboard::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: repeating-linear-gradient(
+                45deg,
+                #000 0,
+                #000 10px,
+                var(--brand-gold) 10px,
+                var(--brand-gold) 20px
+            );
+        }
+
+        .clapperboard-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Sponsor Section Styles */
+        .poker-table {
+            background: radial-gradient(ellipse at center, #0d4f0d 0%, #0a3a0a 70%, #062306 100%);
+            border-radius: 150px;
+            padding: 60px 40px;
+            position: relative;
+            box-shadow: 
+                inset 0 0 100px rgba(0,0,0,0.5),
+                0 0 50px rgba(0,0,0,0.5);
+            max-width: 900px;
+            margin: 0 auto;
+            border: 12px solid #3d2914;
+            transform: perspective(1000px) rotateX(5deg);
+            transition: transform 0.6s ease;
+        }
+
+        .poker-table:hover {
+            transform: perspective(1000px) rotateX(0deg);
+        }
+
+        .poker-table::before {
+            content: '';
+            position: absolute;
+            inset: 20px;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 130px;
+            pointer-events: none;
+        }
+
+        .poker-chips-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .poker-chip {
+            border-radius: 50%;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(50px) scale(0.8);
+        }
+
+        .poker-chip.animate-in {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .poker-chip.animate-in:nth-child(1) { transition-delay: 0.1s; }
+        .poker-chip.animate-in:nth-child(2) { transition-delay: 0.2s; }
+        .poker-chip.animate-in:nth-child(3) { transition-delay: 0.3s; }
+        .poker-chip.animate-in:nth-child(4) { transition-delay: 0.4s; }
+        .poker-chip.animate-in:nth-child(5) { transition-delay: 0.5s; }
+        .poker-chip.animate-in:nth-child(6) { transition-delay: 0.6s; }
+        .poker-chip.animate-in:nth-child(7) { transition-delay: 0.7s; }
+
+        .poker-chip:hover, .poker-chip.is-active {
+            transform: translateY(-15px) scale(1.1);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            z-index: 10;
+        }
+
+        /* Tier Sizes */
+        .poker-chip.platinum {
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(145deg, #e5e5e5, #f0f0f0);
+            border: 12px dashed #999;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .poker-chip.gold {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(145deg, var(--brand-gold), var(--brand-gold-dark));
+            border: 10px dashed var(--brand-gold-dark);
+        }
+
+        .poker-chip.silver {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(145deg, #c0c0c0, #808080);
+            border: 8px dashed #606060;
+        }
+
+        .poker-chip.bronze {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(145deg, #cd7f32, #8b4513);
+            border: 6px dashed #5d2f0d;
+        }
+
+        /* Sponsor Image */
+        .chip-sponsor {
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .chip-sponsor img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Tier Labels */
+        .chip-tier-label {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.9);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
+
+        .poker-chip:hover .chip-tier-label, .poker-chip.is-active .chip-tier-label {
+            opacity: 1;
+            top: -50px;
+        }
+
+        .chip-tier-label::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid rgba(0,0,0,0.9);
+        }
+
+        /* Color variations for tier labels */
+        .poker-chip.platinum .chip-tier-label {
+            background: linear-gradient(145deg, #e5e5e5, #f0f0f0);
+            color: #333;
+        }
+
+        .poker-chip.gold .chip-tier-label {
+            background: linear-gradient(145deg, var(--brand-gold), var(--brand-gold-dark));
+            color: var(--brand-red-dark);
+        }
+
+        .poker-chip.silver .chip-tier-label {
+            background: linear-gradient(145deg, #c0c0c0, #808080);
+            color: #222;
+        }
+
+        .poker-chip.bronze .chip-tier-label {
+            background: linear-gradient(145deg, #cd7f32, #8b4513);
+            color: #fff;
+        }
+
+        /* Info Panels */
+        .chip-info {
+            position: absolute;
+            bottom: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.95);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            width: 280px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            z-index: 20;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 2px solid var(--brand-gold);
+        }
+
+        .poker-chip:hover .chip-info, .poker-chip.is-active .chip-info {
+            opacity: 1;
+            visibility: visible;
+            bottom: -140px;
+        }
+
+        .chip-info::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid var(--brand-gold);
+        }
+
+        .chip-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--brand-gold);
+        }
+
+        .chip-description {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            opacity: 0.9;
+        }
+
+        /* Enhanced hover effects with tier-specific glows */
+        .poker-chip.platinum:hover, .poker-chip.platinum.is-active {
+            box-shadow: 0 20px 50px rgba(229, 229, 229, 0.4),
+                        0 0 30px rgba(229, 229, 229, 0.6);
+        }
+
+        .poker-chip.gold:hover, .poker-chip.gold.is-active {
+            box-shadow: 0 20px 50px rgba(197, 166, 124, 0.4),
+                        0 0 30px rgba(197, 166, 124, 0.6);
+        }
+
+        .poker-chip.silver:hover, .poker-chip.silver.is-active {
+            box-shadow: 0 20px 50px rgba(192, 192, 192, 0.4),
+                        0 0 30px rgba(192, 192, 192, 0.6);
+        }
+
+        .poker-chip.bronze:hover, .poker-chip.bronze.is-active {
+            box-shadow: 0 20px 50px rgba(205, 127, 50, 0.4),
+                        0 0 30px rgba(205, 127, 50, 0.6);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .poker-chip.gold::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(197, 166, 124, 0.3) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .film-strip-outer-container {
+                 margin: 0 -5%;
+            }
+             .film-frame {
+                width: 200px;
+                height: 260px;
+            }
+            .poker-table {
+                padding: 40px 20px;
+                border-radius: 80px;
+            }
+            
+            .poker-chip.platinum { width: 140px; height: 140px; }
+            .poker-chip.gold { width: 120px; height: 120px; }
+            .poker-chip.silver { width: 100px; height: 100px; }
+            .poker-chip.bronze { width: 80px; height: 80px; }
+            
+            .chip-info {
+                width: 250px;
+                padding: 15px;
+                bottom: -100px;
+            }
+            
+            .poker-chip:hover .chip-info, .poker-chip.is-active .chip-info {
+                bottom: -120px;
+            }
+            
+            .chip-name {
+                font-size: 1rem;
+            }
+            
+            .chip-description {
+                font-size: 0.8rem;
+            }
+
+            .member-role {
+                font-size: 0.8rem;
+            }
+
+            .member-name {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .poker-chips-container {
+                gap: 1rem;
+            }
+            
+            .chip-info {
+                width: 200px;
+                padding: 12px;
+            }
+        }
+        
+        /* --- NEW: Committee Overlay Styles --- */
+        #committee-overlay {
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        #committee-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
         }
 
     </style>
 </head>
 <body class="overflow-x-hidden">
     
-    <!-- Curtain Section (Fixed Overlay) -->
     <div id="curtain-container" class="curtain-container is-interactive">
         <div class="curtain-pelmet"></div>
         <div class="curtain curtain-left"></div>
@@ -348,18 +788,14 @@
         </div>
     </div>
 
-    <!-- Main Content (Normal Document Flow) -->
     <main>
-        <!-- Spacer div to position hero section correctly after scroll animation -->
         <div id="scroll-spacer"></div>
 
-        <!-- Hero Section with Countdown -->
         <section id="hero" class="relative h-screen flex items-center justify-center text-center bg-cover bg-center bg-fixed" style="background-image: url('https://i.ibb.co/CKb0Kr7Z/Gemini-Generated-Image-erkflderkflderkf.png');">
             <div class="absolute inset-0 bg-[--brand-red-dark] opacity-85"></div>
             <div class="relative z-10 p-4">
                 <h1 class="font-display text-5xl sm:text-6xl md:text-8xl lg:text-9xl gold-text text-shadow-gold">KPOP CHA CHA 4.0</h1>
                 <p class="mt-4 text-lg sm:text-xl md:text-2xl font-display">The Return of the Voyagers</p>
-                <!-- UPDATED countdown classes for responsiveness -->
                 <div id="countdown" class="flex justify-center gap-2 sm:gap-4 md:gap-8 mt-12">
                     <div class="text-center bg-black/50 p-2 sm:p-4 md:p-6 rounded-lg border-[1px]" style="border-color: rgba(197, 166, 124, 0.5)">
                         <span id="days" class="block font-bold text-3xl sm:text-4xl md:text-6xl">0</span>
@@ -387,7 +823,6 @@
             </div>
         </section>
 
-        <!-- Invitation Section -->
         <section id="invitation-section" class="py-20 md:py-32 section-bg">
             <div class="container mx-auto px-6 max-w-5xl">
                 <div class="md:flex items-center gap-12">
@@ -398,15 +833,7 @@
                     </div>
                     <div class="md:w-1/2 invitation-container">
                         <div id="envelope" class="envelope-wrapper">
-                            <div id="invitation-ticket" class="invitation-ticket">
-                                <!-- <div class="ticket-text">
-                                    <p class="font-display text-sm tracking-widest gold-text" style = "font-size: 1.25rem;">HOUSE OF CHA CHA PROUDLY PRESENTS</p>
-                                    <h3 class="font-display text-3xl gold-text my-2" style = "font-size: 1.25rem;">KPOP CHA CHA 4.0</h3>
-                                    <p class="text-sm">Venue: Mihilaka Medura, BMICH</p>
-                                    <p class="text-sm">Date: 13th December 2025</p>
-                                    <p class="text-sm">Time: 9:00 AM - 6:00 PM</p>
-                                </div> -->
-                            </div>
+                            <div id="invitation-ticket" class="invitation-ticket"></div>
                             <div class="envelope-back"></div>
                             <div id="envelope-flap" class="envelope-flap top"></div>
                             <div id="wax-seal" class="wax-seal"></div>
@@ -416,7 +843,6 @@
             </div>
         </section>
         
-        <!-- The Experience Section -->
         <section class="relative py-28 md:py-40 bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1582215243300-859160537845?q=80&w=1974&auto=format&fit=crop');">
             <div class="absolute inset-0 bg-[--brand-red-dark] opacity-80"></div>
             <div class="relative container mx-auto px-6 text-center">
@@ -443,52 +869,50 @@
             </div>
         </section>
 
-        <!-- Gallery Section -->
         <section class="py-20 md:py-24 section-bg">
              <div class="container mx-auto px-6 text-center">
                  <h2 class="font-display text-5xl md:text-6xl gold-text text-shadow-gold mb-16">Moments From The Archives</h2>
                  <div class="card-container min-h-[500px]">
                      <div class="playing-card-wrapper">
                          <div class="playing-card">
-                            <div class="card-corner top-left black-suit"><span>K</span><span>&spades;</span></div>
-                            <div class="card-image-container">
-                                <img src="https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/472517330_1037738178119110_8388891354158112566_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=f727a1&_nc_ohc=0WCul1NY3-kQ7kNvwEADb7D&_nc_oc=AdnbHbhBpzt79kxWwOwHOFaIMwewN_FL72DSSmfbafZdhwrGXMBljCXp4qBfopGpSr1ySuv4TlNAlWIjrdaSkBt6&_nc_zt=23&_nc_ht=scontent.fcmb1-2.fna&_nc_gid=eQGe7q6XcytwpO7yzPWkWw&oh=00_AfPYm3d_BA-mfB4YXmIluy4fy4DsAoM9f4V2DZpbwZjyvw&oe=68679715" alt="Event photo from 2022" class="card-image">
-                            </div>
-                            <div class="card-corner bottom-right black-suit"><span>K</span><span>&spades;</span></div>
+                             <div class="card-corner top-left black-suit"><span>K</span><span>&spades;</span></div>
+                             <div class="card-image-container">
+                                 <img src="https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/472517330_1037738178119110_8388891354158112566_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=f727a1&_nc_ohc=0WCul1NY3-kQ7kNvwEADb7D&_nc_oc=AdnbHbhBpzt79kxWwOwHOFaIMwewN_FL72DSSmfbafZdhwrGXMBljCXp4qBfopGpSr1ySuv4TlNAlWIjrdaSkBt6&_nc_zt=23&_nc_ht=scontent.fcmb1-2.fna&_nc_gid=eQGe7q6XcytwpO7yzPWkWw&oh=00_AfPYm3d_BA-mfB4YXmIluy4fy4DsAoM9f4V2DZpbwZjyvw&oe=68679715" alt="Event photo from 2022" class="card-image">
+                             </div>
+                             <div class="card-corner bottom-right black-suit"><span>K</span><span>&spades;</span></div>
                          </div>
                      </div>
                      <div class="playing-card-wrapper">
                          <div class="playing-card">
-                            <div class="card-corner top-left red-suit"><span>Q</span><span>&hearts;</span></div>
-                            <div class="card-image-container">
-                                <img src="https://i.ibb.co/LDJB9w87/FB-IMG-1730583687548.jpg" alt="Event photo from 2022" class="card-image">
-                            </div>
-                            <div class="card-corner bottom-right red-suit"><span>Q</span><span>&hearts;</span></div>
+                             <div class="card-corner top-left red-suit"><span>Q</span><span>&hearts;</span></div>
+                             <div class="card-image-container">
+                                 <img src="https://i.ibb.co/LDJB9w87/FB-IMG-1730583687548.jpg" alt="Event photo from 2022" class="card-image">
+                             </div>
+                             <div class="card-corner bottom-right red-suit"><span>Q</span><span>&hearts;</span></div>
                          </div>
                      </div>
                      <div class="playing-card-wrapper">
-                        <div class="playing-card">
-                           <div class="card-corner top-left black-suit"><span>J</span><span>&clubs;</span></div>
-                           <div class="card-image-container">
-                               <img src="https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/482092431_950537537234380_9131921202812105676_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=f727a1&_nc_ohc=g9emIAI8dbYQ7kNvwFP91sO&_nc_oc=AdnmVwCFbx7ksmA2mshy6bL-jpuryEC4L-NkdVdxZGZ0EOXduIhwgCwcUfRuC4LOQTU6PefdwJWk7ipkCNxmIOr6&_nc_zt=23&_nc_ht=scontent.fcmb1-2.fna&_nc_gid=8_bBKg0t5qCL_Os1ewFS4w&oh=00_AfNZNh4lyln4pLHbFBuzgl9sIn2uzrFNZH0z2UK6CMlwAQ&oe=68679D92" alt="Event photo from 2023" class="card-image">
-                           </div>
-                           <div class="card-corner bottom-right black-suit"><span>J</span><span>&clubs;</span></div>
-                        </div>
-                    </div>
+                          <div class="playing-card">
+                             <div class="card-corner top-left black-suit"><span>J</span><span>&clubs;</span></div>
+                             <div class="card-image-container">
+                                 <img src="https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/482092431_950537537234380_9131921202812105676_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=f727a1&_nc_ohc=g9emIAI8dbYQ7kNvwFP91sO&_nc_oc=AdnmVwCFbx7ksmA2mshy6bL-jpuryEC4L-NkdVdxZGZ0EOXduIhwgCwcUfRuC4LOQTU6PefdwJWk7ipkCNxmIOr6&_nc_zt=23&_nc_ht=scontent.fcmb1-2.fna&_nc_gid=8_bBKg0t5qCL_Os1ewFS4w&oh=00_AfNZNh4lyln4pLHbFBuzgl9sIn2uzrFNZH0z2UK6CMlwAQ&oe=68679D92" alt="Event photo from 2023" class="card-image">
+                             </div>
+                             <div class="card-corner bottom-right black-suit"><span>J</span><span>&clubs;</span></div>
+                          </div>
+                     </div>
                      <div class="playing-card-wrapper">
                          <div class="playing-card">
-                            <div class="card-corner top-left red-suit"><span>A</span><span>&diams;</span></div>
-                            <div class="card-image-container">
-                                <img src="https://placehold.co/600x800/B90E0A/c5a67c?text=KCC+2025" alt="Event photo from 2023" class="card-image">
-                            </div>
-                            <div class="card-corner bottom-right red-suit"><span>A</span><span>&diams;</span></div>
+                             <div class="card-corner top-left red-suit"><span>A</span><span>&diams;</span></div>
+                             <div class="card-image-container">
+                                 <img src="https://placehold.co/600x800/B90E0A/c5a67c?text=KCC+2025" alt="Event photo from 2023" class="card-image">
+                             </div>
+                             <div class="card-corner bottom-right red-suit"><span>A</span><span>&diams;</span></div>
                          </div>
                      </div>
                  </div>
-            </div>
+             </div>
         </section>
         
-         <!-- Ticket Section -->
         <section id="ticket-section" class="py-20 md:py-24 bg-gray-900/50">
             <div class="container mx-auto px-6 max-w-3xl text-center">
                 <h2 class="font-display text-5xl md:text-6xl gold-text text-shadow-gold mb-6">Join The Guestlist</h2>
@@ -496,21 +920,153 @@
                  <a href="#" class="btn-gold inline-block py-4 px-16 text-xl rounded-lg">Register Now</a>
             </div>
         </section>
+
+        <section id="sponsors-section" class="py-20 md:py-32 section-bg relative overflow-hidden">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="font-display text-5xl md:text-6xl gold-text text-shadow-gold mb-6">Our Elite Partners</h2>
+                <p class="text-lg mb-16 max-w-3xl mx-auto">These prestigious sponsors make the magic possible. Each one carefully selected to enhance your experience.</p>
+                
+                <div class="poker-table mx-auto" id="sponsor-table">
+                    <div class="poker-chips-container">
+                        <div class="poker-chip platinum" data-tier="platinum">
+                            <div class="chip-tier-label">Platinum Sponsor</div>
+                            <div class="chip-sponsor">
+                                <img src="https://kpopshop.lk/cdn/shop/files/kpopshoplk_logo4.png?v=1665126315" alt="Platinum Sponsor">
+                            </div>
+                            <div class="chip-info">
+                                <h3 class="chip-name">Premium Brand</h3>
+                                <p class="chip-description">Our most prestigious partner providing exclusive experiences and premium products for all attendees.</p>
+                            </div>
+                        </div>
+
+                        <div class="poker-chip gold" data-tier="gold">
+                            <div class="chip-tier-label">Gold Sponsor</div>
+                            <div class="chip-sponsor">
+                                <img src="https://placehold.co/150x75/c5a67c/3b0811?text=GOLD+SPONSOR" alt="Gold Sponsor 1">
+                            </div>
+                            <div class="chip-info">
+                                <h3 class="chip-name">Elite Partner</h3>
+                                <p class="chip-description">Supporting our vision with premium services and exceptional quality products.</p>
+                            </div>
+                        </div>
+
+                        <div class="poker-chip gold" data-tier="gold">
+                            <div class="chip-tier-label">Gold Sponsor</div>
+                            <div class="chip-sponsor">
+                                <img src="https://placehold.co/150x75/c5a67c/3b0811?text=GOLD+SPONSOR+2" alt="Gold Sponsor 2">
+                            </div>
+                            <div class="chip-info">
+                                <h3 class="chip-name">Golden Alliance</h3>
+                                <p class="chip-description">Bringing innovative solutions and premium experiences to every corner of the event.</p>
+                            </div>
+                        </div>
+
+                        <div class="poker-chip silver" data-tier="silver">
+                            <div class="chip-tier-label">Silver Sponsor</div>
+                            <div class="chip-sponsor">
+                                <img src="https://placehold.co/120x60/c0c0c0/333333?text=SILVER+SPONSOR" alt="Silver Sponsor 1">
+                            </div>
+                            <div class="chip-info">
+                                <h3 class="chip-name">Silver Star</h3>
+                                <p class="chip-description">Reliable partner providing quality services and products for our community.</p>
+                            </div>
+                        </div>
+
+                        <div class="poker-chip silver" data-tier="silver">
+                            <div class="chip-tier-label">Silver Sponsor</div>
+                            <div class="chip-sponsor">
+                                <img src="https://placehold.co/120x60/c0c0c0/333333?text=SILVER+SPONSOR+2" alt="Silver Sponsor 2">
+                            </div>
+                            <div class="chip-info">
+                                <h3 class="chip-name">Silver Stream</h3>
+                                <p class="chip-description">Supporting our mission with dedication and consistent quality offerings.</p>
+                            </div>
+                        </div>
+
+                        <div class="poker-chip bronze" data-tier="bronze">
+                            <div class="chip-tier-label">Bronze Sponsor</div>
+                            <div class="chip-sponsor">
+                                <img src="https://placehold.co/100x50/cd7f32/ffffff?text=BRONZE+SPONSOR" alt="Bronze Sponsor 1">
+                            </div>
+                            <div class="chip-info">
+                                <h3 class="chip-name">Bronze Buddy</h3>
+                                <p class="chip-description">Valued partner supporting our community with essential services.</p>
+                            </div>
+                        </div>
+
+                        <div class="poker-chip bronze" data-tier="bronze">
+                            <div class="chip-tier-label">Bronze Sponsor</div>
+                            <div class="chip-sponsor">
+                                <img src="https://placehold.co/100x50/cd7f32/ffffff?text=BRONZE+SPONSOR+2" alt="Bronze Sponsor 2">
+                            </div>
+                            <div class="chip-info">
+                                <h3 class="chip-name">Bronze Base</h3>
+                                <p class="chip-description">Foundation partner helping us create memorable experiences.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16">
+                    <p class="text-lg text-center">
+                        <span class="gold-text font-display">Interested in becoming a sponsor?</span><br>
+                        <span class="text-base opacity-90">Contact us to join our exclusive partnership program.</span>
+                    </p>
+                    <a href="#" class="btn-outline-gold inline-block mt-6 py-3 px-8 rounded-lg">Become a Sponsor</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="committee-section" class="py-20 md:py-32 bg-gray-900/30 overflow-hidden">
+            <div class="container mx-auto px-6 text-center">
+                <div class="clapperboard inline-block">
+                    <span class="clapperboard-text">CREW</span>
+                </div>
+                <h2 class="font-display text-5xl md:text-6xl gold-text text-shadow-gold mt-8 mb-4">The House Masters</h2>
+                <p class="text-lg mb-16 max-w-3xl mx-auto">Meet the directors of this grand production</p>
+            </div>
+            
+            <div class="film-strip-outer-container">
+                <div class="film-strip-container">
+                    <div id="film-strip" class="film-strip">
+                        <!-- Film strip content will be generated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- NEW: View All Button -->
+            <div class="text-center mt-16">
+                <button id="view-all-btn" class="btn-outline-gold py-3 px-10 rounded-lg">View All Members</button>
+            </div>
+
+        </section>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-black py-12">
         <div class="container mx-auto px-6 text-center text-gray-400">
              <h4 class="font-display text-3xl gold-text mb-4">KPOP CHA CHA</h4>
              <p class="italic mb-4">"FROM FANS; FOR FANS"</p>
              <p class="mb-8" style="color: var(--brand-text)">"Let's celebrate the music, the memories, and the magic of K-pop — together at Cha Cha."</p>
              <div class="flex justify-center space-x-6">
-                <a href="#" class="hover:text-[--brand-gold] transition-colors">Instagram</a>
-                <a href="#" class="hover:text-[--brand-gold] transition-colors">TikTok</a>
-                <a href="#" class="hover:text-[--brand-gold] transition-colors">Facebook</a>
+                 <a href="#" class="hover:text-[--brand-gold] transition-colors">Instagram</a>
+                 <a href="#" class="hover:text-[--brand-gold] transition-colors">TikTok</a>
+                 <a href="#" class="hover:text-[--brand-gold] transition-colors">Facebook</a>
              </div>
         </div>
     </footer>
+    
+    <!-- NEW: Committee Member Overlay -->
+    <div id="committee-overlay" class="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-[200] hidden">
+        <div class="bg-black/80 p-6 md:p-8 rounded-lg shadow-2xl w-11/12 max-w-6xl max-h-[90vh] overflow-y-auto relative border-2 border-[--brand-gold]">
+            <button id="close-overlay-btn" class="absolute top-2 right-3 text-[--brand-gold] hover:text-white transition-colors z-10">
+                <i class="gg-close" style="--ggs:1.5"></i>
+            </button>
+            <h2 class="font-display text-3xl md:text-4xl gold-text text-shadow-gold text-center mb-8">Organizing Committee</h2>
+            <div id="all-members-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            </div>
+        </div>
+    </div>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -518,86 +1074,198 @@
             const curtainContainer = document.getElementById('curtain-container');
             const curtainLeft = document.querySelector('.curtain-left');
             const curtainRight = document.querySelector('.curtain-right');
-            const curtainOverlay = document.getElementById('curtain-overlay-content');
+            const curtainOverlayContent = document.getElementById('curtain-overlay-content');
             const curtainPelmet = document.querySelector('.curtain-pelmet');
             const scrollSpacer = document.getElementById('scroll-spacer');
-            
-            // --- Envelope Elements ---
             const envelope = document.getElementById('envelope');
             const envelopeFlap = document.getElementById('envelope-flap');
             const invitationTicket = document.getElementById('invitation-ticket');
             const waxSeal = document.getElementById('wax-seal');
+            const sponsorTable = document.getElementById('sponsor-table');
+            const sponsorChips = document.querySelectorAll('.poker-chip');
 
+            // --- Curtain & Scroll Logic ---
             const maxScrollOpen = window.innerHeight * 0.5;
             scrollSpacer.style.height = `${maxScrollOpen}px`;
 
             function handleAnimations() {
                 const scrollY = window.scrollY;
-
-                // Curtain Animation Logic
-                const curtainScrollFraction = Math.min(scrollY / maxScrollOpen, 1);
-                const curtainTranslateX = curtainScrollFraction * 100;
-                const curtainOpacity = 1 - curtainScrollFraction * 1.5;
-
-                curtainLeft.style.transform = `translateX(-${curtainTranslateX}%)`;
-                curtainRight.style.transform = `translateX(${curtainTranslateX}%)`;
-                curtainOverlay.style.opacity = curtainOpacity;
-                curtainPelmet.style.opacity = curtainOpacity;
-
-                if (curtainScrollFraction < 0.1) curtainContainer.classList.add('is-interactive');
-                else curtainContainer.classList.remove('is-interactive');
-                
-                if (curtainScrollFraction >= 1) curtainContainer.style.display = 'none';
-                else curtainContainer.style.display = 'flex';
-
-                // Envelope Animation Logic
-                const envelopeRect = envelope.getBoundingClientRect();
                 const viewportHeight = window.innerHeight;
 
-                const startPoint = viewportHeight * 0.6; 
-                const endPoint = viewportHeight * 0.2;
+                // Curtain
+                if(curtainContainer) {
+                    const curtainScrollFraction = Math.min(scrollY / maxScrollOpen, 1);
+                    curtainLeft.style.transform = `translateX(-${curtainScrollFraction * 100}%)`;
+                    curtainRight.style.transform = `translateX(${curtainScrollFraction * 100}%)`;
+                    curtainOverlayContent.style.opacity = 1 - curtainScrollFraction * 1.5;
+                    curtainPelmet.style.opacity = 1 - curtainScrollFraction * 1.5;
+                    if (curtainScrollFraction >= 1) {
+                        curtainContainer.style.display = 'none';
+                    } else {
+                        curtainContainer.style.display = 'flex';
+                    }
+                }
 
-                const currentTop = envelopeRect.top;
+                // Envelope
+                if (envelope) {
+                    const envelopeRect = envelope.getBoundingClientRect();
+                    const startPoint = viewportHeight * 0.6; 
+                    const endPoint = viewportHeight * 0.2;
+                    let envelopeScrollFraction = (startPoint - envelopeRect.top) / (startPoint - endPoint);
+                    envelopeScrollFraction = Math.max(0, Math.min(1, envelopeScrollFraction));
+
+                    waxSeal.style.opacity = 1 - (envelopeScrollFraction * 2);
+                    envelopeFlap.style.transform = `rotateX(${envelopeScrollFraction * 180}deg)`;
+                    const ticketFraction = Math.max(0, (envelopeScrollFraction - 0.5) * 2);
+                    invitationTicket.style.transform = `translateY(${100 - (ticketFraction * 100)}%)`;
+                    invitationTicket.style.opacity = ticketFraction;
+                }
                 
-                let envelopeScrollFraction = (startPoint - currentTop) / (startPoint - endPoint);
-                envelopeScrollFraction = Math.max(0, Math.min(1, envelopeScrollFraction));
-
-                const flapRotation = envelopeScrollFraction * 180;
-                waxSeal.style.opacity = 1 - (envelopeScrollFraction * 2);
-                envelopeFlap.style.transform = `rotateX(${flapRotation}deg)`;
-
-                const ticketFraction = Math.max(0, (envelopeScrollFraction - 0.5) * 2);
-                invitationTicket.style.transform = `translateY(${100 - (ticketFraction * 100)}%)`;
-                invitationTicket.style.opacity = ticketFraction;
+                // Sponsor Animations
+                if (sponsorTable) {
+                    const rect = sponsorTable.getBoundingClientRect();
+                    if (rect.top < viewportHeight * 0.8) {
+                        sponsorChips.forEach(chip => {
+                            chip.classList.add('animate-in');
+                        });
+                    }
+                }
             }
-            
-            window.addEventListener('scroll', () => {
-                window.requestAnimationFrame(handleAnimations);
-            }, { passive: true });
+            window.addEventListener('scroll', handleAnimations, { passive: true });
             
             // --- Countdown Timer ---
             const countDownDate = new Date("Dec 13, 2025 09:00:00").getTime();
-            const x = setInterval(function() {
-                const now = new Date().getTime();
-                const distance = countDownDate - now;
-                
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                
-                document.getElementById("days").innerText = days;
-                document.getElementById("hours").innerText = hours;
-                document.getElementById("minutes").innerText = minutes;
-                document.getElementById("seconds").innerText = seconds;
-                
+            const x = setInterval(() => {
+                const distance = countDownDate - new Date().getTime();
+                document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+                document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
                 if (distance < 0) {
                     clearInterval(x);
                     document.getElementById("countdown").innerHTML = "<div class='text-center w-full'><p class='font-display text-4xl gold-text'>The Event Is Now Live!</p></div>";
                 }
             }, 1000);
 
-            // Initial call to set state
+            // --- Organizing Committee Data ---
+            const committeeMembers = [
+                { name: 'Roshinie Fernando', role: 'President', img: 'https://placehold.co/250x300/c5a67c/3b0811?text=President' },
+                { name: 'Jane Doe', role: 'Vice President', img: 'https://placehold.co/250x300/c5a67c/3b0811?text=VP' },
+                { name: 'John Smith', role: 'Secretary', img: 'https://placehold.co/250x300/c5a67c/3b0811?text=Secretary' },
+                { name: 'Emily White', role: 'Treasurer', img: 'https://placehold.co/250x300/c5a67c/3b0811?text=Treasurer' },
+                { name: 'Michael Brown', role: 'Events Head', img: 'https://placehold.co/250x300/c5a67c/3b0811?text=Events' },
+                { name: 'Sarah Green', role: 'Marketing Head', img: 'https://placehold.co/250x300/c5a67c/3b0811?text=Marketing' },
+                { name: 'David Black', role: 'Sponsorships', img: 'https://placehold.co/250x300/c5a67c/3b0811?text=Sponsors' },
+                { name: 'Laura Grey', role: 'Logistics', img: 'https://placehold.co/250x300/c5a67c/3b0811?text=Logistics' },
+                { name: 'Chris Red', role: 'Creative Director', img: 'https://placehold.co/250x300/c5a67c/3b0811?text=Creative' },
+                { name: 'Olivia Blue', role: 'Volunteer Coordinator', img: 'https://placehold.co/250x300/c5a67c/3b0811?text=Volunteers' },
+            ];
+
+            // --- Populate Film Strip ---
+            const filmStrip = document.getElementById('film-strip');
+            if (filmStrip) {
+                let filmHTML = '';
+                committeeMembers.forEach(member => {
+                    filmHTML += `
+                        <div class="film-frame">
+                            <div class="perforation-strip"></div>
+                            <div class="frame-content">
+                                <img src="${member.img}" alt="${member.name}" class="member-photo-film" loading="lazy">
+                                <div class="member-name-plate">
+                                    <div class="member-role">${member.role}</div>
+                                    <div class="member-name">${member.name}</div>
+                                </div>
+                            </div>
+                            <div class="perforation-strip"></div>
+                        </div>
+                    `;
+                });
+                filmStrip.innerHTML = filmHTML + filmHTML; // Duplicate for seamless loop
+            }
+
+            // --- NEW: Committee Overlay Logic ---
+            const viewAllBtn = document.getElementById('view-all-btn');
+            const committeeOverlay = document.getElementById('committee-overlay');
+            const closeOverlayBtn = document.getElementById('close-overlay-btn');
+            const allMembersGrid = document.getElementById('all-members-grid');
+
+            function populateOverlayGrid() {
+                let gridHTML = '';
+                committeeMembers.forEach(member => {
+                    gridHTML += `
+                        <div class="card-bg rounded-lg overflow-hidden text-center p-4 transform hover:scale-105 transition-transform duration-300">
+                            <img src="${member.img}" alt="${member.name}" class="w-full h-48 object-cover rounded-md mb-4" loading="lazy">
+                            <h3 class="member-role text-sm">${member.role}</h3>
+                            <p class="member-name text-lg">${member.name}</p>
+                        </div>
+                    `;
+                });
+                allMembersGrid.innerHTML = gridHTML;
+            }
+
+            if (viewAllBtn) {
+                viewAllBtn.addEventListener('click', () => {
+                    console.log(allMembersGrid.innerHTML);
+                    if (allMembersGrid.innerHTML) {
+                        populateOverlayGrid();
+                        console.log('Hello2');
+                    }
+                    committeeOverlay.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // Prevent background scroll
+                });
+            }
+
+            function closeOverlay() {
+                committeeOverlay.classList.add('hidden');
+                document.body.style.overflow = ''; // Restore background scroll
+            }
+
+            if (closeOverlayBtn) {
+                closeOverlayBtn.addEventListener('click', closeOverlay);
+            }
+            
+            if (committeeOverlay) {
+                committeeOverlay.addEventListener('click', (e) => {
+                    // Close if the click is on the background itself, not the content
+                    if (e.target === committeeOverlay) {
+                        closeOverlay();
+                    }
+                });
+            }
+
+
+            // --- Poker Chip Mobile Toggle ---
+            const deactivateAllChips = () => {
+                sponsorChips.forEach(c => c.classList.remove('is-active'));
+            };
+
+            sponsorChips.forEach(chip => {
+                chip.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    const wasActive = chip.classList.contains('is-active');
+                    deactivateAllChips();
+                    if (!wasActive) {
+                        chip.classList.add('is-active');
+                    }
+                });
+            });
+
+            document.addEventListener('click', () => {
+                deactivateAllChips();
+            });
+
+            // --- Smooth Scroll ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(this.getAttribute('href'));
+                    if(targetElement) {
+                       targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Initial call
             handleAnimations();
         });
     </script>
